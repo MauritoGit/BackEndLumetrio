@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/nuevaserie.css' %}">
+
+<h1>Subir nueva serie</h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    
+
+    <div class="form-group my-3">
+        <label> Titulo </label>
+        <input type="text" class="form-control" name="title" placeholder="Titulo">
+    </div>
+
+    <div class="form-group my-3">
+        <label> Genero </label>
+        <select name="genero">
+            <option value="Accion">Accion</option>
+            <option value="Terror">Terror</option>
+            <option value="Drama">Drama</option>
+            <option value="Documental">Documental</option>
+            <option value="Comedia">Comedia</option>
+            <option value="Romantica">Romantica</option>
+            <option value="Ciencia Ficcion">Ciencia Ficcion</option>
+            <option value="Animada">Animada</option>
+        </select>
+    </div>
+
+    <div class="form-group my-3">
+        <label> Sinopsis </label>
+        <textarea class="form-control" name="sinopsis"></textarea>
+    </div>
+
+    <div class="form-group my-3">
+        <label> Temporadas </label>
+        <input type="number" class="form-control" name="temporadas" placeholder="Temporadas">
+    </div>
+
+    <div class="form-group my-3">
+        <label> Duracion </label>
+        <input type="number" class="form-control" name="duracion" placeholder="Duracion">
+    </div>
+
+    <input type="file" class="form-control" name="image"/>
+
+    <button class="btn btn-primary" type="submit">Enviar</button>
+</form>
+
+{% endblock %}
